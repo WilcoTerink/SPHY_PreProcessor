@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SphyPreProcessDialog</class>
+ <widget class="QDialog" name="SphyPreProcessDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>699</width>
+    <height>429</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SPHY preprocessor</string>
+  </property>
+  <widget class="QTabWidget" name="Tab">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>50</y>
+     <width>681</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="generalTab">
+    <attribute name="title">
+     <string>General settings</string>
+    </attribute>
+    <widget class="QGroupBox" name="foldersGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>9</y>
+       <width>661</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Folder selection</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="databaseLabel">
+          <property name="text">
+           <string>Database</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="databaseLineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="databaseFolderButton">
+          <property name="text">
+           <string>Select database folder</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="processedModelDataLabel">
+          <property name="text">
+           <string>Processed model data</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="resultsLineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="resultsFolderButton">
+          <property name="text">
+           <string>Select output folder</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_13">
+        <item>
+         <widget class="QLabel" name="pcrasterBinFolderLabel">
+          <property name="text">
+           <string>PCRaster bin folder</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="pcrasterBinFolderLineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="pcrasterBinFolderButton">
+          <property name="text">
+           <string>Select PCRaster bin folder</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="periodProcessGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>240</y>
+       <width>308</width>
+       <height>55</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Meteorological forcing period to process</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_84">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="startDateLabel">
+          <property name="text">
+           <string>Start date</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDateEdit" name="startDateEdit">
+          <property name="displayFormat">
+           <string>dd-MMM-yyyy</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="endDateLabel">
+          <property name="text">
+           <string>End date</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDateEdit" name="endDateEdit">
+          <property name="date">
+           <date>
+            <year>2005</year>
+            <month>12</month>
+            <day>31</day>
+           </date>
+          </property>
+          <property name="displayFormat">
+           <string>dd-MMM-yyyy</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="coordinateSystemGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>140</y>
+       <width>661</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Coordinate system</string>
+     </property>
+     <widget class="QPlainTextEdit" name="utmInfoLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>23</y>
+        <width>411</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>Select the UTM WGS84 coordinate system for your area. Click the show UTM map
+button to identify the corresponding UTM zone for your model area.</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>23</y>
+        <width>221</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLabel" name="utmLabel">
+           <property name="text">
+            <string>WGS84 UTM zone</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="utmSpinBox">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>60</number>
+           </property>
+           <property name="value">
+            <number>60</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="utmNRadioButton">
+           <property name="text">
+            <string>N</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="utmSRadioButton">
+           <property name="text">
+            <string>S</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QToolButton" name="showUTMMapButton">
+         <property name="text">
+          <string>show UTM map</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>240</y>
+       <width>151</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/plugins/SphyPreProcess/icon.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="areaSelectionTab">
+    <attribute name="title">
+     <string>Area selection</string>
+    </attribute>
+    <widget class="QGroupBox" name="selectAreagroupBox">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>9</y>
+       <width>181</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="title">
+      <string>Select area</string>
+     </property>
+     <widget class="QToolButton" name="selectAreaButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>48</y>
+        <width>157</width>
+        <height>123</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <family>Comic Sans MS</family>
+        <pointsize>9</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+        <stylestrategy>NoAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string>Click to select area</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/plugins/SphyPreProcess/select_area.png</normaloff>:/plugins/SphyPreProcess/select_area.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>150</width>
+        <height>150</height>
+       </size>
+      </property>
+      <property name="toolButtonStyle">
+       <enum>Qt::ToolButtonTextUnderIcon</enum>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="showBackgroundMapcheckBox">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>24</y>
+        <width>158</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Show background layers</string>
+      </property>
+     </widget>
+     <zorder>showBackgroundMapcheckBox</zorder>
+     <zorder>selectAreaButton</zorder>
+    </widget>
+    <widget class="QGroupBox" name="areaPropertiesGroupBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>9</y>
+       <width>471</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Area properties</string>
+     </property>
+     <widget class="QWidget" name="horizontalLayoutWidget_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>51</y>
+        <width>215</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <item>
+        <widget class="QLabel" name="areaSizeLabel">
+         <property name="text">
+          <string>Area size [km2]</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="areaSizeLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>79</y>
+        <width>451</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <item>
+        <widget class="QLabel" name="xminLabel">
+         <property name="text">
+          <string>xmin</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="xminLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="xmaxLabel">
+         <property name="text">
+          <string>xmax</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="xmaxLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="columnsLabel">
+         <property name="text">
+          <string>columns</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="columnsLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_10">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>107</y>
+        <width>451</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <item>
+        <widget class="QLabel" name="yminLabel">
+         <property name="text">
+          <string>ymin</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="yminLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="ymaxLabel">
+         <property name="text">
+          <string>ymax</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="ymaxLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="rowsLabel">
+         <property name="text">
+          <string>rows</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="rowsLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>50</y>
+        <width>221</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QLabel" name="numberCellsLabel">
+         <property name="text">
+          <string>Number of cells</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="numberCellsLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>135</y>
+        <width>451</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="spatialResolutionLabel">
+         <property name="text">
+          <string>Set spatial resolution [m]</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spatialResolutionSpinBox">
+         <property name="maximum">
+          <number>100000</number>
+         </property>
+         <property name="singleStep">
+          <number>10</number>
+         </property>
+         <property name="value">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="calculateAreaPropsButton">
+         <property name="text">
+          <string>Re-calculate area properties</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>23</y>
+        <width>451</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <item>
+        <widget class="QLabel" name="selectedAreaMapLabel">
+         <property name="text">
+          <string>Selected area</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="selectedAreaMapLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>451</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_12">
+       <item>
+        <widget class="QToolButton" name="createModelCloneButton">
+         <property name="text">
+          <string>Create model clone</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="cloneLineEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="modulesTab">
+    <attribute name="title">
+     <string>Modules</string>
+    </attribute>
+    <widget class="QGroupBox" name="modulesGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>11</y>
+       <width>138</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Modules to process</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QCheckBox" name="glacierModCheckBox">
+        <property name="text">
+         <string>Glaciers</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="snowModCheckBox">
+        <property name="text">
+         <string>Snow</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="groundwaterModCheckBox">
+        <property name="text">
+         <string>Groundwater</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="routingModCheckBox">
+        <property name="text">
+         <string>Routing</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="dynamicVegModCheckBox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Dynamic vegetation</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="lakesModCheckBox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Lakes</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="reservorisModCheckBox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Reservoirs</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="sedimentModCheckBox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Sediment</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="mapsGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>155</x>
+       <y>11</y>
+       <width>131</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Maps to process</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QListWidget" name="modulesListWidget"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="processLog1GroupBox">
+     <property name="geometry">
+      <rect>
+       <x>295</x>
+       <y>11</y>
+       <width>371</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Process log</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0" colspan="2">
+       <widget class="QTextEdit" name="processLog1TextEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QProgressBar" name="initialMapsProgressBar">
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QToolButton" name="createInitialMapsToolButton">
+        <property name="text">
+         <string>Create initial maps</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="basinDelineationTab">
+    <attribute name="title">
+     <string>Basin delineation</string>
+    </attribute>
+    <widget class="QGroupBox" name="processLog2GroupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>94</y>
+       <width>431</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Process log</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="1">
+       <widget class="QToolButton" name="delineateButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Delineate basin</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QTextEdit" name="processLog2TextEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QProgressBar" name="delineateProgressBar">
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="outletsGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>661</width>
+       <height>78</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Basin settings</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_14">
+        <item>
+         <widget class="QLineEdit" name="outletsLineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="selectOutletsButton">
+          <property name="text">
+           <string>Select outlet(s) shapefile</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="clipMaskCheckBox">
+        <property name="text">
+         <string>Clip to basin mask</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="createSubBasinCheckBox">
+        <property name="text">
+         <string>Create sub-basins</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>90</y>
+       <width>211</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/plugins/SphyPreProcess/delineation.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="margin">
+      <number>5</number>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="stationsTab">
+    <attribute name="title">
+     <string>Stations</string>
+    </attribute>
+    <widget class="QGroupBox" name="processLog3GroupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>79</y>
+       <width>381</width>
+       <height>261</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Process log</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QTextEdit" name="processLog3TextEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="stationsButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>Create stations</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>661</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Stations for time-series output</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_15">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_16">
+        <item>
+         <widget class="QLineEdit" name="stationsLineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="selectStationsButton">
+          <property name="text">
+           <string>Select station(s) shapefile</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>80</y>
+       <width>271</width>
+       <height>261</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/plugins/SphyPreProcess/stations.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="meteoTab">
+    <attribute name="title">
+     <string>Meteorological forcing</string>
+    </attribute>
+    <widget class="QGroupBox" name="forcingGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>361</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Meteorological forcings to process</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_17">
+      <item>
+       <widget class="QCheckBox" name="precFlagCheckBox">
+        <property name="text">
+         <string>Precipitation</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="tempFlagCheckBox">
+        <property name="text">
+         <string>Temperature</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="precGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>361</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Precipitation</string>
+     </property>
+     <widget class="QRadioButton" name="precDBRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>69</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Database</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="precFilesGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>341</width>
+        <height>85</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>CSV files</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_18">
+           <item>
+            <widget class="QLineEdit" name="precLocFileLineEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="precLocToolButton">
+             <property name="text">
+              <string>Select location file</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_19">
+           <item>
+            <widget class="QLineEdit" name="precDataFileLineEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="precDataToolButton">
+             <property name="text">
+              <string>Select data file</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QRadioButton" name="precCSVRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>20</y>
+        <width>145</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>User defined station data</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="processLog4GroupBox">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>10</y>
+       <width>291</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Process log</string>
+     </property>
+     <widget class="QTextEdit" name="processLog4TextEdit">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>23</y>
+        <width>271</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="forcingToolButton">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>300</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Create forcing</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="forcingProgressBar">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>300</y>
+        <width>181</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="tempGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>361</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Temperature</string>
+     </property>
+     <widget class="QRadioButton" name="tempDBRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>69</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Database</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="tempCSVRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>20</y>
+        <width>145</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>User defined station data</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="tempFilesGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>46</y>
+        <width>341</width>
+        <height>85</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>CSV files</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_20">
+           <item>
+            <widget class="QLineEdit" name="tempLocFileLineEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="tempLocToolButton">
+             <property name="text">
+              <string>Select location file</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_21">
+           <item>
+            <widget class="QLineEdit" name="tempDataFileLineEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="tempDataToolButton">
+             <property name="text">
+              <string>Select data file</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>213</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
+    <item>
+     <widget class="QToolButton" name="newButton">
+      <property name="text">
+       <string>New Project</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QToolButton" name="openButton">
+      <property name="text">
+       <string>Open project</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QToolButton" name="saveAsButton">
+      <property name="text">
+       <string>Save As</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

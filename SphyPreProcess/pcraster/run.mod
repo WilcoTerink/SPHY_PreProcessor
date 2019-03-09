@@ -1,0 +1,1 @@
+"E:/Active/Eclipse_workspace/SPHY_interface_preprocess/plugin/SphyPreProcess/ZOOI/stations.map" = nominal("E:/Active/Eclipse_workspace/SPHY_interface_preprocess/plugin/SphyPreProcess/ZOOI/temp.map")

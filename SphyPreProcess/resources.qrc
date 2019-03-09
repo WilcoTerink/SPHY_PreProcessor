@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/plugins/SphyPreProcess">
+    <file>stations.png</file>
+    <file>icon.png</file>
+    <file>select_area.png</file>
+    <file>delineation.png</file>
+  </qresource>
+</RCC>
